@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using Trackmatic.Common.Model;
 
 namespace Trackmatic.Planning.Framework
 {
@@ -11,7 +10,7 @@ namespace Trackmatic.Planning.Framework
             _snapshot = snapshot;
         }
 
-        public T Clone(UserReference user)
+        public T Clone()
         {
             var json = JsonConvert.SerializeObject(_snapshot);
             var clone = JsonConvert.DeserializeObject<T>(json);

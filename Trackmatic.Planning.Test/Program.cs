@@ -29,7 +29,6 @@ namespace Trackmatic.Planning.Test
 
         private static dynamic Get(string id)
         {
-
             var store = new DocumentStore
             {
                 Url = "http://localhost:8092"

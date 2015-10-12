@@ -20,6 +20,8 @@ namespace Trackmatic.Planning.Versions
 
         private string _name;
 
+        private Depot _depot;
+
         private PlanVersion(PlanVersionSnapshot snapshot, UserReference user) : this(snapshot)
         {
             _version = _version.Increment(user);
@@ -28,13 +30,12 @@ namespace Trackmatic.Planning.Versions
 
         public PlanVersion(PlanVersionSnapshot snapshot)
         {
-            _readonly = new ReadonlyMixin(false);
             _version = new Version(snapshot.Version);
             _simulations = snapshot.Simulations.Select(x => new Simulation(x)).ToList();
-            Name = snapshot.Name;
+            _name = snapshot.Name;
             _actions = snapshot.Actions;
             _resources = snapshot.Resources;
-            Depot = snapshot.Depot;
+            _depot = snapshot.Depot;
             _readonly = new ReadonlyMixin(true);
         }
 
@@ -64,15 +65,23 @@ namespace Trackmatic.Planning.Versions
 
         public IEnumerable<Simulation> Simulations => _simulations;
 
-        public Depot Depot { get; set; }
+        public Depot Depot
+        {
+            get { return _depot; }
+            set
+            {
+                _readonly.Guard();
+                _depot = value;
+            }
+        }
 
         public PlanVersion Edit(UserReference user)
         {
             var snapshot = CreateSnapshot();
-            var clone = snapshot.Clone(user);
+            var clone = snapshot.Clone();
             return new PlanVersion(clone, user);
         }
-
+        
         public Version Current
         {
             get { return _version; }

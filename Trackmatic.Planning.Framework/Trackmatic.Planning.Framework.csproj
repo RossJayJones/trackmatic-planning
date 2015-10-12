@@ -45,7 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CloneMixin.cs" />
-    <Compile Include="ISnapshot.cs" />
+    <Compile Include="IVersionableSnapshot.cs" />
     <Compile Include="IStorable.cs" />
     <Compile Include="IStorableVersion.cs" />
     <Compile Include="IStorage.cs" />

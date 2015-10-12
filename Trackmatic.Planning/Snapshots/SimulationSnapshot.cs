@@ -3,7 +3,7 @@ using Trackmatic.Planning.Framework;
 
 namespace Trackmatic.Planning.Snapshots
 {
-    public class SimulationSnapshot : ISnapshot<SimulationVersionSnapshot>
+    public class SimulationVersionableSnapshot : IVersionableSnapshot<SimulationVersionSnapshot>
     {
         public string Id { get; set; }
 

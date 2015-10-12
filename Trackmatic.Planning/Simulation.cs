@@ -12,11 +12,11 @@ namespace Trackmatic.Planning
 
         private readonly StatusMixin<ESimulationStatus> _status;
 
-        public Simulation(SimulationSnapshot snapshot)
+        public Simulation(SimulationVersionableSnapshot versionableSnapshot)
         {
-            Id = snapshot.Id;
-            _versions = new VersionMixin<SimulationVersion>(snapshot.Versions.Select(x => new SimulationVersion(x)));
-            _status = new StatusMixin<ESimulationStatus>(snapshot.Status);
+            Id = versionableSnapshot.Id;
+            _versions = new VersionMixin<SimulationVersion>(versionableSnapshot.Versions.Select(x => new SimulationVersion(x)));
+            _status = new StatusMixin<ESimulationStatus>(versionableSnapshot.Status);
         }
 
         public Simulation(string id, UserReference user)
@@ -51,10 +51,7 @@ namespace Trackmatic.Planning
             return _versions.GetCurrentVersion();
         }
 
-        public int Version
-        {
-            get { return _versions.Version; }
-        }
+        public int Version => _versions.Version;
 
         public SimulationVersion Edit(UserReference user)
         {
@@ -65,9 +62,9 @@ namespace Trackmatic.Planning
 
         #region IStorable
 
-        public SimulationSnapshot CreateSnapshot()
+        public SimulationVersionableSnapshot CreateSnapshot()
         {
-            var snapshot = new SimulationSnapshot
+            var snapshot = new SimulationVersionableSnapshot
             {
                 Id = Id,
                 Versions = _versions.Versions.Select(x => x.CreateSnapshot()).ToList(),

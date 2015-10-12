@@ -18,7 +18,7 @@ namespace Trackmatic.Planning.Snapshots
 
         public SimulationVersionSnapshot Clone(UserReference user)
         {
-            return _clone.Clone(user);
+            return _clone.Clone();
         }
     }
 }

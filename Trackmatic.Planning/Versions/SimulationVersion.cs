@@ -21,7 +21,6 @@ namespace Trackmatic.Planning.Versions
 
         public SimulationVersion(SimulationVersionSnapshot snapshot)
         {
-            _readonly = new ReadonlyMixin(false);
             _version = new Version(snapshot.Version);
             _runs = snapshot.Runs;
             _readonly = new ReadonlyMixin(true);
@@ -45,10 +44,7 @@ namespace Trackmatic.Planning.Versions
             return new SimulationVersion(clone, user);
         }
 
-        public Version Current
-        {
-            get { return _version; }
-        }
+        public Version Current => _version;
 
         public SimulationVersionSnapshot CreateSnapshot()
         {

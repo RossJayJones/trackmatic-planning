@@ -6,7 +6,8 @@ namespace Trackmatic.Planning.Snapshots
 {
     public class PlanVersionSnapshot : IVersionSnapshot
     {
-        private CloneMixin<PlanVersionSnapshot> _clone;
+        private readonly CloneMixin<PlanVersionSnapshot> _clone;
+
         public PlanVersionSnapshot()
         {
             _clone = new CloneMixin<PlanVersionSnapshot>(this);
@@ -15,9 +16,9 @@ namespace Trackmatic.Planning.Snapshots
         public VersionSnapshot Version { get; set; }
 
 
-        public PlanVersionSnapshot Clone(UserReference user)
+        public PlanVersionSnapshot Clone()
         {
-            return _clone.Clone(user);
+            return _clone.Clone();
         }
 
         public string Name { get; set; }
@@ -28,6 +29,6 @@ namespace Trackmatic.Planning.Snapshots
 
         public List<Resource> Resources { get; set; }
 
-        public List<SimulationSnapshot> Simulations { get; set; }
+        public List<SimulationVersionableSnapshot> Simulations { get; set; }
     }
 }

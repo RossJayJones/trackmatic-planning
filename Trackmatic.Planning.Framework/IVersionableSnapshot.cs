@@ -2,7 +2,7 @@
 
 namespace Trackmatic.Planning.Framework
 {
-    public interface ISnapshot<T> where T : IVersionSnapshot
+    public interface IVersionableSnapshot<T> where T : IVersionSnapshot
     {
         string Id { get; set; }
 

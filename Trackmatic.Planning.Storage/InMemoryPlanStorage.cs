@@ -6,11 +6,11 @@ namespace Trackmatic.Planning.Storage
 {
     public class InMemoryPlanStorage : IStorage<Plan>
     {
-        private readonly Dictionary<string, PlanSnapshot> _storage;
+        private readonly Dictionary<string, PlanVersionableSnapshot> _storage;
 
         public InMemoryPlanStorage()
         {
-            _storage = new Dictionary<string, PlanSnapshot>();
+            _storage = new Dictionary<string, PlanVersionableSnapshot>();
         }
         
         public void Store(Plan item)
