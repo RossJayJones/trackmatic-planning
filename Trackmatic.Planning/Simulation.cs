@@ -1,4 +1,5 @@
-﻿using Trackmatic.Planning.Framework;
+﻿using System.Collections.Generic;
+using Trackmatic.Planning.Framework;
 using System.Linq;
 using Trackmatic.Common.Model;
 using Trackmatic.Planning.Snapshots;
@@ -25,9 +26,14 @@ namespace Trackmatic.Planning
             _status = new StatusMixin<ESimulationStatus>(ESimulationStatus.Complete, user);
             _versions = new VersionMixin<SimulationVersion>(new SimulationVersion(new VersionData(user)));
         }
+        #region Public Properies
 
         public string Id { get; }
 
+        public List<Run> Runs { get; set; }
+        
+        #endregion
+        
         #region ITrackStatusChanges
 
         public ESimulationStatus Status => GetCurrentStatus();

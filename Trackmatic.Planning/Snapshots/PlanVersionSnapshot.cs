@@ -26,7 +26,9 @@ namespace Trackmatic.Planning.Snapshots
 
         public List<Action> Actions { get; set; }
 
-        public List<Resource> Resources { get; set; }
+        //public List<Resource> Resources { get; set; }
+
+        public List<ResourceType> ResourceTypes { get; set; }
 
         public List<SimulationVersionableSnapshot> Simulations { get; set; }
     }

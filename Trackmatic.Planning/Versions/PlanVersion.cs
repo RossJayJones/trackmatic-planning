@@ -16,7 +16,7 @@ namespace Trackmatic.Planning.Versions
 
         private readonly List<Action> _actions;
 
-        private readonly List<Resource> _resources;
+        private readonly List<ResourceType> _resourceTypes;
 
         private string _name;
 
@@ -34,7 +34,7 @@ namespace Trackmatic.Planning.Versions
             _simulations = snapshot.Simulations.Select(x => new Simulation(x)).ToList();
             _name = snapshot.Name;
             _actions = snapshot.Actions;
-            _resources = snapshot.Resources;
+            _resourceTypes = snapshot.ResourceTypes;
             _depot = snapshot.Depot;
             _readonly = new ReadonlyMixin(true);
         }
@@ -44,7 +44,7 @@ namespace Trackmatic.Planning.Versions
             _version = version;
             _simulations = new List<Simulation>();
             _actions = new List<Action>();
-            _resources = new List<Resource>();
+            _resourceTypes = new List<ResourceType>();
         }
 
         public VersionData Version => _version;
@@ -61,7 +61,7 @@ namespace Trackmatic.Planning.Versions
 
         public IEnumerable<Action> Actions => _actions;
 
-        public IEnumerable<Resource> Resources => _resources;
+        public IEnumerable<ResourceType> ResourceTypes => _resourceTypes;
 
         public IEnumerable<Simulation> Simulations => _simulations;
 
@@ -91,7 +91,7 @@ namespace Trackmatic.Planning.Versions
                 Actions = Actions.ToList(),
                 Depot = Depot,
                 Name = Name,
-                Resources = Resources.ToList(),
+                ResourceTypes = ResourceTypes.ToList(),
                 Version = new VersionDataSnapshot(Version),
                 Simulations = Simulations.Select(x => x.CreateSnapshot()).ToList()
             };
@@ -109,10 +109,10 @@ namespace Trackmatic.Planning.Versions
             _actions.Add(action);
         }
 
-        public void Add(Resource resource)
+        public void Add(ResourceType resourceType)
         {
             _readonly.Guard();
-            _resources.Add(resource);
+            _resourceTypes.Add(resourceType);
         }
 
         public Simulation GetSimulationById(string id)

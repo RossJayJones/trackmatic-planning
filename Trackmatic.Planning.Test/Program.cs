@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Raven.Client.Document;
@@ -13,7 +14,7 @@ namespace Trackmatic.Planning.Test
     {
         static void Main(string[] args)
         {
-            while (true)
+           while (true)
             {
                 var plan = Get("6");
 
@@ -38,9 +39,83 @@ namespace Trackmatic.Planning.Test
 
             var storage = new RavenPlanStorage(store);
 
-            var plan = storage.Get("6");
+            var plan = storage.Get(id);
 
             return CreatePlanDto(plan);
+        }
+
+        public static void InsertInitialPlan()
+        {
+            var user = new UserReference
+            {
+                Id = "user/1",
+                Name = "Howie"
+            };
+
+            var plan = new Plan("6", user);
+
+            var current = plan.Edit(user);
+
+            current.Add(new Action
+            {
+                Id = "action/1",
+                Position = new Position
+                {
+                    Latitude = -26.130315,
+                    Longitude = 28.086010
+                }
+            });
+
+            current.Add(new Action
+            {
+                Id = "action/2",
+                Position = new Position
+                {
+                    Latitude = -26.135930,
+                    Longitude = 28.094081
+                }
+            });
+            current.Add(new ResourceType
+            {
+                Id = "resourceType/1",
+                Quantity = 2,
+                Resources = new List<Resource>
+                        {
+                            new Resource
+                            {
+                                Id = "resource/1"
+                            },
+
+                            new Resource
+                            {
+                                Id = "resource/2"
+                            }
+                        }
+            });
+
+            current.Name = "Test Plan 1";
+
+            current.Depot = new Depot
+            {
+                Id = "depot/1",
+
+                Position = new Position
+                {
+                    Latitude = -26.141512,
+                    Longitude = 28.106698
+                }
+            };
+
+            var store = new DocumentStore
+            {
+                Url = "http://localhost:8092"
+            };
+
+            store.Initialize();
+
+            var storage = new RavenPlanStorage(store);
+
+            storage.Store(plan);
         }
 
         private static void Post(string id, PlanModel model)
@@ -59,7 +134,7 @@ namespace Trackmatic.Planning.Test
             var plan = storage.Get("6");
 
             var current = plan.Edit(user);
-
+            
             current.Name = model.Name;
 
             storage.Store(plan);
@@ -78,10 +153,11 @@ namespace Trackmatic.Planning.Test
                 {
                     x.Id
                 }),
-                Resources = current.Resources.Select(x => new
+                ResourceTypes = current.ResourceTypes.Select(x => new
                 {
                     x.Id,
-                    x.Qty
+                    x.Quantity,
+                    Resources = x.Resources.Select(y => new { y.Id } )
                 }),
                 current.Depot,
                 Simulations = current.Simulations.Select(CreateSimulationDto)

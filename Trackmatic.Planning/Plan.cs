@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Trackmatic.Common.Model;
 using Trackmatic.Planning.Framework;
 using Trackmatic.Planning.Snapshots;

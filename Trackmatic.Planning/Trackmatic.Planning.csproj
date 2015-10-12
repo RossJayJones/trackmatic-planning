@@ -50,6 +50,8 @@
     <Compile Include="ERunStatus.cs" />
     <Compile Include="ESimulationStatus.cs" />
     <Compile Include="Plan.cs" />
+    <Compile Include="Position.cs" />
+    <Compile Include="ResourceType.cs" />
     <Compile Include="Snapshots\PlanSnapshot.cs" />
     <Compile Include="Snapshots\PlanVersionSnapshot.cs" />
     <Compile Include="Versions\PlanVersion.cs" />
