@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Trackmatic.Common.Model;
 using Trackmatic.Planning.Framework;
 
 namespace Trackmatic.Planning.Snapshots
@@ -13,7 +12,7 @@ namespace Trackmatic.Planning.Snapshots
             _clone = new CloneMixin<PlanVersionSnapshot>(this);
         }
 
-        public VersionSnapshot Version { get; set; }
+        public VersionDataSnapshot Version { get; set; }
 
 
         public PlanVersionSnapshot Clone()

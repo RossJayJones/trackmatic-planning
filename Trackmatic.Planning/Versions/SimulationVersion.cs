@@ -7,7 +7,7 @@ namespace Trackmatic.Planning.Versions
 {
     public class SimulationVersion : IVersion<SimulationVersion>, IStorableVersion<SimulationVersionSnapshot>
     {
-        private readonly Version _version;
+        private readonly VersionData _version;
 
         private readonly List<Run> _runs;
 
@@ -21,19 +21,19 @@ namespace Trackmatic.Planning.Versions
 
         public SimulationVersion(SimulationVersionSnapshot snapshot)
         {
-            _version = new Version(snapshot.Version);
+            _version = new VersionData(snapshot.Version);
             _runs = snapshot.Runs;
             _readonly = new ReadonlyMixin(true);
 
         }
 
-        public SimulationVersion(Version version)
+        public SimulationVersion(VersionData version)
         {
             _version = version;
             _runs = new List<Run>();
         }
 
-        public Version Version => _version;
+        public VersionData Version => _version;
 
         public IEnumerable<Run> Runs => _runs;
 
@@ -44,13 +44,13 @@ namespace Trackmatic.Planning.Versions
             return new SimulationVersion(clone, user);
         }
 
-        public Version Current => _version;
+        public VersionData Current => _version;
 
         public SimulationVersionSnapshot CreateSnapshot()
         {
             var snapshot = new SimulationVersionSnapshot
             {
-                Version = new VersionSnapshot(_version),
+                Version = new VersionDataSnapshot(_version),
                 Runs = _runs
             };
             return snapshot;

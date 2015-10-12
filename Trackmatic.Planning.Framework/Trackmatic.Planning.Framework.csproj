@@ -57,9 +57,9 @@
     <Compile Include="ReadonlyMixin.cs" />
     <Compile Include="Status.cs" />
     <Compile Include="StatusMixin%27.cs" />
-    <Compile Include="Version.cs" />
+    <Compile Include="VersionData.cs" />
     <Compile Include="VersionMixin%27.cs" />
-    <Compile Include="VersionSnapshot.cs" />
+    <Compile Include="VersionDataSnapshot.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Trackmatic.Common\Trackmatic.Common.csproj">

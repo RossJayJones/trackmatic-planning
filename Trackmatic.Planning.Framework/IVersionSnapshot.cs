@@ -2,6 +2,6 @@
 {
     public interface IVersionSnapshot
     {
-        VersionSnapshot Version { get; set; }
+        VersionDataSnapshot Version { get; set; }
     }
 }

@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Trackmatic.Common.Model;
+﻿using Trackmatic.Common.Model;
 
 namespace Trackmatic.Planning.Framework
 {

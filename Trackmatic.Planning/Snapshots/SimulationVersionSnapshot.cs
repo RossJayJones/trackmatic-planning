@@ -12,7 +12,7 @@ namespace Trackmatic.Planning.Snapshots
             _clone = new CloneMixin<SimulationVersionSnapshot>(this);
         }
 
-        public VersionSnapshot Version { get; set; }
+        public VersionDataSnapshot Version { get; set; }
 
         public List<Run> Runs { get; set; }
 

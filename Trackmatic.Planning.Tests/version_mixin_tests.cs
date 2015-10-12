@@ -27,7 +27,7 @@ namespace Trackmatic.Planning.Tests
                 return new DummyVerion();
             }
 
-            public Version Version { get; }
+            public VersionData Version { get; }
         }
     }
 }

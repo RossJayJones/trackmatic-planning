@@ -10,7 +10,7 @@ namespace Trackmatic.Planning.Versions
     {
         private readonly ReadonlyMixin _readonly;
 
-        private readonly Version _version;
+        private readonly VersionData _version;
 
         private readonly List<Simulation> _simulations;
 
@@ -30,7 +30,7 @@ namespace Trackmatic.Planning.Versions
 
         public PlanVersion(PlanVersionSnapshot snapshot)
         {
-            _version = new Version(snapshot.Version);
+            _version = new VersionData(snapshot.Version);
             _simulations = snapshot.Simulations.Select(x => new Simulation(x)).ToList();
             _name = snapshot.Name;
             _actions = snapshot.Actions;
@@ -39,7 +39,7 @@ namespace Trackmatic.Planning.Versions
             _readonly = new ReadonlyMixin(true);
         }
 
-        public PlanVersion(Version version)
+        public PlanVersion(VersionData version)
         {
             _version = version;
             _simulations = new List<Simulation>();
@@ -47,7 +47,7 @@ namespace Trackmatic.Planning.Versions
             _resources = new List<Resource>();
         }
 
-        public Version Version => _version;
+        public VersionData Version => _version;
 
         public string Name
         {
@@ -82,10 +82,7 @@ namespace Trackmatic.Planning.Versions
             return new PlanVersion(clone, user);
         }
         
-        public Version Current
-        {
-            get { return _version; }
-        }
+        public VersionData Current => _version;
 
         public PlanVersionSnapshot CreateSnapshot()
         {
@@ -95,7 +92,7 @@ namespace Trackmatic.Planning.Versions
                 Depot = Depot,
                 Name = Name,
                 Resources = Resources.ToList(),
-                Version = new VersionSnapshot(Version),
+                Version = new VersionDataSnapshot(Version),
                 Simulations = Simulations.Select(x => x.CreateSnapshot()).ToList()
             };
             return memento;

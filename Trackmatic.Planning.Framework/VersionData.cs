@@ -3,20 +3,20 @@ using Trackmatic.Common.Model;
 
 namespace Trackmatic.Planning.Framework
 {
-    public class Version
+    public class VersionData
     {
-        public Version()
+        public VersionData()
         {
             
         }
 
-        public Version(UserReference user)
+        public VersionData(UserReference user)
         {
             User = user;
             Timestamp = DateTime.UtcNow;
         }
 
-        public Version(VersionSnapshot snapshot)
+        public VersionData(VersionDataSnapshot snapshot)
         {
             Id = snapshot.Id;
             Timestamp = snapshot.Timestamp;
@@ -29,9 +29,9 @@ namespace Trackmatic.Planning.Framework
 
         public UserReference User { get; set; }
 
-        public Version Increment(UserReference user)
+        public VersionData Increment(UserReference user)
         {
-            var next = new Version(user)
+            var next = new VersionData(user)
             {
                 Id = Id + 1
             };

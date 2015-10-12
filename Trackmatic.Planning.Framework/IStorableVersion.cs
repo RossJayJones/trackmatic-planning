@@ -1,6 +1,6 @@
 ﻿namespace Trackmatic.Planning.Framework
 {
-    public interface IStorableVersion<T> where T : IVersionSnapshot
+    public interface IStorableVersion<out T> where T : IVersionSnapshot
     {
         T CreateSnapshot();
     }

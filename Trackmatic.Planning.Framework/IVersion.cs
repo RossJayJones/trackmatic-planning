@@ -6,6 +6,6 @@ namespace Trackmatic.Planning.Framework
     {
         T Edit(UserReference user);
 
-        Version Version { get; }
+        VersionData Version { get; }
     }
 }

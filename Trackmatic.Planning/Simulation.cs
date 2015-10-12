@@ -23,7 +23,7 @@ namespace Trackmatic.Planning
         {
             Id = id;
             _status = new StatusMixin<ESimulationStatus>(ESimulationStatus.Complete, user);
-            _versions = new VersionMixin<SimulationVersion>(new SimulationVersion(new Version(user)));
+            _versions = new VersionMixin<SimulationVersion>(new SimulationVersion(new VersionData(user)));
         }
 
         public string Id { get; }

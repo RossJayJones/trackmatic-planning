@@ -23,7 +23,7 @@ namespace Trackmatic.Planning
         {
             Id = id;
             _status = new StatusMixin<EPlanStatus>(EPlanStatus.Active, user);
-            _version = new VersionMixin<PlanVersion>(new PlanVersion(new Version(user)));
+            _version = new VersionMixin<PlanVersion>(new PlanVersion(new VersionData(user)));
         }
 
         #region Public Properties

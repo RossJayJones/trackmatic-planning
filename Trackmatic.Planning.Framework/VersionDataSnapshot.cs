@@ -3,14 +3,14 @@ using Trackmatic.Common.Model;
 
 namespace Trackmatic.Planning.Framework
 {
-    public class VersionSnapshot
+    public class VersionDataSnapshot
     {
-        public VersionSnapshot()
+        public VersionDataSnapshot()
         {
             
         }
 
-        public VersionSnapshot(Version version)
+        public VersionDataSnapshot(VersionData version)
         {
             Id = version.Id;
             Timestamp = version.Timestamp;

@@ -10,7 +10,7 @@ namespace Trackmatic.Planning.Tests
         [Test]
         public void increment_should_increase_the_version_number()
         {
-            var version = new Version(new UserReference());
+            var version = new VersionData(new UserReference());
 
             Assert.AreEqual(0, version.Id);
 
