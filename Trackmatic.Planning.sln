@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trackmatic.Planning", "Trackmatic.Planning\Trackmatic.Planning.csproj", "{EAC467E8-77C6-434B-9FE1-1BBD03D8E89F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trackmatic.Planning.Test", "Trackmatic.Planning.Test\Trackmatic.Planning.Test.csproj", "{8F6B891E-56BD-419A-8C17-BB9435F076DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trackmatic.Planning.Tests", "Trackmatic.Planning.Tests\Trackmatic.Planning.Tests.csproj", "{7D2B0CFE-C0FD-4923-A72D-C192D8C67A82}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trackmatic.Planning.Framework", "Trackmatic.Planning.Framework\Trackmatic.Planning.Framework.csproj", "{2E7F6EBB-B37B-4DF8-800D-EC0CEF449CF5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trackmatic.Common", "Trackmatic.Common\Trackmatic.Common.csproj", "{159FFEED-3B1F-4022-BB74-B34412F403D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trackmatic.Planning.Storage", "Trackmatic.Planning.Storage\Trackmatic.Planning.Storage.csproj", "{BD4C8121-AA69-411A-B1BB-A437CBEDDB63}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EAC467E8-77C6-434B-9FE1-1BBD03D8E89F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAC467E8-77C6-434B-9FE1-1BBD03D8E89F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAC467E8-77C6-434B-9FE1-1BBD03D8E89F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAC467E8-77C6-434B-9FE1-1BBD03D8E89F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F6B891E-56BD-419A-8C17-BB9435F076DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F6B891E-56BD-419A-8C17-BB9435F076DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F6B891E-56BD-419A-8C17-BB9435F076DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F6B891E-56BD-419A-8C17-BB9435F076DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D2B0CFE-C0FD-4923-A72D-C192D8C67A82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D2B0CFE-C0FD-4923-A72D-C192D8C67A82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D2B0CFE-C0FD-4923-A72D-C192D8C67A82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D2B0CFE-C0FD-4923-A72D-C192D8C67A82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E7F6EBB-B37B-4DF8-800D-EC0CEF449CF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E7F6EBB-B37B-4DF8-800D-EC0CEF449CF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E7F6EBB-B37B-4DF8-800D-EC0CEF449CF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E7F6EBB-B37B-4DF8-800D-EC0CEF449CF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{159FFEED-3B1F-4022-BB74-B34412F403D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{159FFEED-3B1F-4022-BB74-B34412F403D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{159FFEED-3B1F-4022-BB74-B34412F403D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{159FFEED-3B1F-4022-BB74-B34412F403D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD4C8121-AA69-411A-B1BB-A437CBEDDB63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD4C8121-AA69-411A-B1BB-A437CBEDDB63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD4C8121-AA69-411A-B1BB-A437CBEDDB63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD4C8121-AA69-411A-B1BB-A437CBEDDB63}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
