@@ -5,7 +5,7 @@
         
     }
 
-    public interface IStorable<T, TS> : IStorable where TS : IVersionSnapshot where T : IVersionableSnapshot<TS>
+    public interface IStorable<T> : IStorable where T : IVersionableSnapshot
     {
         T CreateSnapshot();
     }

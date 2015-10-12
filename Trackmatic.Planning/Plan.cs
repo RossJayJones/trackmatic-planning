@@ -6,17 +6,17 @@ using Trackmatic.Planning.Versions;
 
 namespace Trackmatic.Planning
 {
-    public class Plan : IVersionable<PlanVersion>, ITrackStatusChanges<EPlanStatus>, IStorable<PlanVersionableSnapshot, PlanVersionSnapshot>
+    public class Plan : IVersionable<PlanVersion>, ITrackStatusChanges<EPlanStatus>, IStorable<PlanSnapshot>
     {
         private readonly StatusMixin<EPlanStatus> _status;
 
         private readonly VersionMixin<PlanVersion> _version;
 
-        public Plan(PlanVersionableSnapshot versionableSnapshot)
+        public Plan(PlanSnapshot snapshot)
         {
-            Id = versionableSnapshot.Id;
-            _version = new VersionMixin<PlanVersion>(versionableSnapshot.Versions.Select(x => new PlanVersion(x)));
-            _status = new StatusMixin<EPlanStatus>(versionableSnapshot.Status);
+            Id = snapshot.Id;
+            _version = new VersionMixin<PlanVersion>(snapshot.Versions.Select(x => new PlanVersion(x)));
+            _status = new StatusMixin<EPlanStatus>(snapshot.Status);
         }
         
         public Plan(string id, UserReference user)
@@ -66,9 +66,9 @@ namespace Trackmatic.Planning
 
         #region IStorable
         
-        public PlanVersionableSnapshot CreateSnapshot()
+        public PlanSnapshot CreateSnapshot()
         {
-            var snapshot = new PlanVersionableSnapshot
+            var snapshot = new PlanSnapshot
             {
                 Id = Id,
                 Status = _status.Status.ToList(),

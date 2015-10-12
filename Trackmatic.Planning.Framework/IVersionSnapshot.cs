@@ -1,6 +1,4 @@
-﻿using Trackmatic.Common.Model;
-
-namespace Trackmatic.Planning.Framework
+﻿namespace Trackmatic.Planning.Framework
 {
     public interface IVersionSnapshot
     {

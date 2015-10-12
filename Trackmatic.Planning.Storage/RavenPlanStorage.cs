@@ -26,7 +26,7 @@ namespace Trackmatic.Planning.Storage
         {
             using (var session = CreateSession())
             {
-                var snapshot = session.Load<PlanVersionableSnapshot>(id);
+                var snapshot = session.Load<PlanSnapshot>(id);
                 return new Plan(snapshot);
             }
         }
